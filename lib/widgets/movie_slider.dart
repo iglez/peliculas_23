@@ -42,7 +42,20 @@ class _MoviePoster extends StatelessWidget {
       height: 190,
       width: 130,
       color: Colors.green,
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          FadeInImage(
+            placeholder: AssetImage('assets/no-image.jpg'), 
+            image: NetworkImage('https://via.placeholder.com/300x400'),
+            width: 130,
+            height: 190,
+            fit: BoxFit.cover
+          ),
+
+          Text('Star wars')
+        ],
+      ),
     );
   }
 }
