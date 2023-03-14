@@ -47,7 +47,11 @@ class _PosterAndTitle extends StatelessWidget {
 
           Column(
             children: [
-              Text('movie-title'),
+              Text('movie-title',
+               style: Theme.of(context).textTheme.headlineSmall,
+               overflow: TextOverflow.ellipsis,
+               maxLines: 2
+              ),
             ],
           )
         ],
