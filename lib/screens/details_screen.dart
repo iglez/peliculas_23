@@ -24,8 +24,14 @@ class _CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverAppBar(
+    return const SliverAppBar(
       backgroundColor: Colors.indigo,
+      expandedHeight: 200,
+      floating: false,
+      pinned: true,
+      flexibleSpace: FlexibleSpaceBar(
+        title: Text('movie-title'),
+      ),
     );
   }
 }
