@@ -17,6 +17,8 @@ class MovieSlider extends StatelessWidget {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           ),
           
+          const SizedBox(height: 5),
+
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -57,9 +59,9 @@ class _MoviePoster extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
 
-          Text('Star wars: El retorno del fantasma que ahora es bueno y antes era malo',
+          const Text('Star wars: El retorno del fantasma que ahora es bueno y antes era malo',
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
             textAlign: TextAlign.center,
