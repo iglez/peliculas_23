@@ -14,8 +14,20 @@ class MovieSlider extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text('Populares', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            child: Text('Populares',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           ),
+          
+          ListView.builder(
+            itemCount: 20,
+            itemBuilder: (context, index) {
+              return Container(
+                height: 130,
+                width: 190,
+                color: Colors.green,
+              );
+            },
+          )
         ],
       ),
     );
