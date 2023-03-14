@@ -44,13 +44,16 @@ class _MoviePoster extends StatelessWidget {
       color: Colors.green,
       margin: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
-        children: const [
-          FadeInImage(
-            placeholder: AssetImage('assets/no-image.jpg'), 
-            image: NetworkImage('https://via.placeholder.com/300x400'),
-            width: 130,
-            height: 190,
-            fit: BoxFit.cover
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: const FadeInImage(
+              placeholder: AssetImage('assets/no-image.jpg'), 
+              image: NetworkImage('https://via.placeholder.com/300x400'),
+              width: 130,
+              height: 190,
+              fit: BoxFit.cover
+            ),
           ),
 
           SizedBox(height: 5),
