@@ -46,9 +46,15 @@ class _PosterAndTitle extends StatelessWidget {
           SizedBox(width: 20),
 
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('movie-title',
                style: Theme.of(context).textTheme.headlineSmall,
+               overflow: TextOverflow.ellipsis,
+               maxLines: 2
+              ),
+              Text('original-title',
+               style: Theme.of(context).textTheme.titleMedium,
                overflow: TextOverflow.ellipsis,
                maxLines: 2
               ),
