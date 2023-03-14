@@ -1,7 +1,7 @@
 // mateapp
 import 'package:flutter/material.dart';
-import 'package:peliculas_23/screens/details_screen.dart';
-import 'package:peliculas_23/screens/home_screen.dart';
+
+import 'package:peliculas_23/screens/screens.dart';
 
 void main() => runApp(const MyApp());
 
