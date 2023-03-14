@@ -16,11 +16,15 @@ class CardSwiper extends StatelessWidget {
         itemCount: 10,
         layout: SwiperLayout.STACK,
         itemWidth: size.width * 0.6,
-        itemHeight: size.height * 0.9,
+        itemHeight: size.height * 0.4,
         itemBuilder: (context, index) {
-          return const FadeInImage(
-            placeholder: AssetImage('assets/no-image.jpg'),
-            image: NetworkImage('https://via.placeholder.com/300x400'),
+          return ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: const FadeInImage(
+              placeholder: AssetImage('assets/no-image.jpg'),
+              image: NetworkImage('https://via.placeholder.com/300x400'),
+              fit: BoxFit.cover,
+            ),
           );
         },
       ),
