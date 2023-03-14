@@ -7,7 +7,7 @@ class MovieSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 250,
+      height: 260,
       color: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,6 +52,8 @@ class _MoviePoster extends StatelessWidget {
             height: 190,
             fit: BoxFit.cover
           ),
+
+          SizedBox(height: 5),
 
           Text('Star wars: El retorno del fantasma que ahora es bueno y antes era malo',
             overflow: TextOverflow.ellipsis,
