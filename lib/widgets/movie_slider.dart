@@ -18,15 +18,18 @@ class MovieSlider extends StatelessWidget {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           ),
           
-          ListView.builder(
-            itemCount: 20,
-            itemBuilder: (context, index) {
-              return Container(
-                height: 130,
-                width: 190,
-                color: Colors.green,
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: 20,
+              itemBuilder: (context, index) {
+                return Container(
+                  height: 130,
+                  width: 190,
+                  color: Colors.green,
+                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                );
+              },
+            ),
           )
         ],
       ),
