@@ -41,6 +41,14 @@ class _PosterAndTitle extends StatelessWidget {
               image: NetworkImage('https://via.placeholder.com/200x300'),
               height: 150,
             ),
+          ),
+          
+          SizedBox(width: 20),
+
+          Column(
+            children: [
+              Text('movie-title'),
+            ],
           )
         ],
       ),
