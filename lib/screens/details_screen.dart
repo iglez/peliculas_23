@@ -7,10 +7,15 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final String movie = ModalRoute.of(context)?.settings.arguments.toString() ?? 'no-movie';
 
-    return const Scaffold(
+    return Scaffold(
       body: CustomScrollView(
         slivers: [
-          _CustomAppBar()
+          _CustomAppBar(),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              Text('Hola Mundo')
+            ])
+          )
         ],
       )
     );
