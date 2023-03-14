@@ -13,12 +13,23 @@ class DetailsScreen extends StatelessWidget {
           _CustomAppBar(),
           SliverList(
             delegate: SliverChildListDelegate([
-              Text('Hola Mundo')
+              _PosterAndTitle()
             ])
           )
         ],
       )
     );
+  }
+}
+
+class _PosterAndTitle extends StatelessWidget {
+  const _PosterAndTitle({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
 
