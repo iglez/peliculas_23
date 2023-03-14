@@ -53,7 +53,11 @@ class _MoviePoster extends StatelessWidget {
             fit: BoxFit.cover
           ),
 
-          Text('Star wars')
+          Text('Star wars: El retorno del fantasma que ahora es bueno y antes era malo',
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            textAlign: TextAlign.center,
+          )
         ],
       ),
     );
