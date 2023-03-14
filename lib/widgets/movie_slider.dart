@@ -22,18 +22,27 @@ class MovieSlider extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 20,
-              itemBuilder: (context, index) {
-                return Container(
-                  height: 130,
-                  width: 190,
-                  color: Colors.green,
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                );
-              },
+              itemBuilder: (context, index) => _MoviePoster(),
             ),
           )
         ],
       ),
+    );
+  }
+}
+
+class _MoviePoster extends StatelessWidget {
+  const _MoviePoster({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 190,
+      width: 130,
+      color: Colors.green,
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
     );
   }
 }
