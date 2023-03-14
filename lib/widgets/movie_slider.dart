@@ -20,6 +20,7 @@ class MovieSlider extends StatelessWidget {
           
           Expanded(
             child: ListView.builder(
+              scrollDirection: Axis.horizontal,
               itemCount: 20,
               itemBuilder: (context, index) {
                 return Container(
