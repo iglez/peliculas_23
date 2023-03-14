@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
-class DetailsScreen extends StatelessWidget {  
+class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final String movie = ModalRoute.of(context)?.settings.arguments.toString() ?? 'no-movie';
+
+    return Scaffold(
       body: Center(
-        child: Text('Detail')
-      )
+        child: Text('Detail $movie')
+      ),
     );
   }
 }
