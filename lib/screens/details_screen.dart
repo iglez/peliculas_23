@@ -30,7 +30,12 @@ class _CustomAppBar extends StatelessWidget {
       floating: false,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
-        title: Text('movie-title'),
+        title: const Text('movie-title'),
+        background: FadeInImage(
+          placeholder: AssetImage('assets/loading.gif'), 
+          image: NetworkImage('https://via.placeholder.com/500x300'),
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
