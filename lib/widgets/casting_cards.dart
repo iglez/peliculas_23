@@ -9,7 +9,6 @@ class CastingCards extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 30),
       width: double.infinity,
       height: 180,
-      color: Colors.red,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 10,
@@ -28,7 +27,6 @@ class _CastCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 10),
       width: 110,
       height: 100,
-      color: Colors.green,
       child: Column(
         children: [
 
@@ -43,9 +41,9 @@ class _CastCard extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
 
-          Text('actor.name last name',
+          const Text('actor.name last name',
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
