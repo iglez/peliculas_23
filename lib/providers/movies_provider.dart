@@ -33,5 +33,7 @@ class MoviesProvider extends ChangeNotifier {
 
     final nowPlayingResponse = NowPlayingResponse.fromJson(response.body);
     onDisplayMovies = nowPlayingResponse.results;
+
+    notifyListeners();
   }
 }
