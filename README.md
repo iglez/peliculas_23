@@ -14,3 +14,20 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+# themoviedb.org
+
+Site
+https://www.themoviedb.org/
+
+Documentation API
+https://www.themoviedb.org/documentation/api
+
+Developers
+https://developers.themoviedb.org/3/
+
+now-playing
+https://developers.themoviedb.org/3/movies/get-now-playing
+
+- example
+  https://api.themoviedb.org/3/movie/now_playing?api_key=<YOUR_API_KEY>&language=es-ES&page=1
