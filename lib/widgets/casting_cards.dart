@@ -41,6 +41,14 @@ class _CastCard extends StatelessWidget {
               width: 100,
               fit: BoxFit.cover,
             ),
+          ),
+
+          SizedBox(height: 5),
+
+          Text('actor.name last name',
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
           )
 
         ],
