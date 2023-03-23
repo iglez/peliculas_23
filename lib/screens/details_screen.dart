@@ -93,6 +93,7 @@ class _CustomAppBar extends StatelessWidget {
         centerTitle: true,
         titlePadding: const EdgeInsets.all(0),
         title: Container(
+          padding: const EdgeInsets.only(bottom: 10),
           alignment: Alignment.bottomCenter,
           color: Colors.black12,
           width: double.infinity,
@@ -114,7 +115,7 @@ class _Overview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 20,
         vertical: 10,
       ),
