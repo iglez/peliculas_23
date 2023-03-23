@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:peliculas_23/models/movie.dart';
 import 'package:peliculas_23/models/now_playing_response.dart';
+import 'package:peliculas_23/models/popular_response.dart';
 
 class MoviesProvider extends ChangeNotifier {
   String _apiKey = '99568c3e97fec3b5e291a3ab8ab92f64';
@@ -11,11 +12,13 @@ class MoviesProvider extends ChangeNotifier {
   String _language = 'es-ES';
 
   List<Movie> onDisplayMovies = [];
+  List<Movie> popularMovies = [];
 
   MoviesProvider() {
     print('movie provider inicializado');
 
     getOnDisplayMovies();
+    getPopularMovies();
   }
 
   getOnDisplayMovies() async {
@@ -33,6 +36,26 @@ class MoviesProvider extends ChangeNotifier {
 
     final nowPlayingResponse = NowPlayingResponse.fromJson(response.body);
     onDisplayMovies = nowPlayingResponse.results;
+
+    notifyListeners();
+  }
+
+  getPopularMovies() async {
+    var url = Uri.https(_baseUrl, '3/movie/popular', {
+      'api_key': _apiKey,
+      'language': _language,
+      'page': '1',
+    });
+
+    // Await the http get response, then decode the json-formatted response.
+    final response = await http.get(url);
+
+    // print(response.statusCode);
+
+    final popularResponse = PopularResponse.fromJson(response.body);
+    popularMovies = [...popularMovies, ...popularResponse.results];
+
+    print(popularMovies[0].title);
 
     notifyListeners();
   }
