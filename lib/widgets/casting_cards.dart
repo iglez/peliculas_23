@@ -32,12 +32,15 @@ class _CastCard extends StatelessWidget {
       child: Column(
         children: [
 
-          FadeInImage(
-            placeholder: AssetImage('assets/no-image.jpg'), 
-            image: NetworkImage('https://via.placeholder.com/150x300'),
-            height: 140,
-            width: 100,
-            fit: BoxFit.cover,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: const FadeInImage(
+              placeholder: AssetImage('assets/no-image.jpg'), 
+              image: NetworkImage('https://via.placeholder.com/150x300'),
+              height: 140,
+              width: 100,
+              fit: BoxFit.cover,
+            ),
           )
 
         ],
