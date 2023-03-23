@@ -11,8 +11,6 @@ class HomeScreen extends StatelessWidget {
     // final moviesProvider = Provider.of<MoviesProvider>(context, listen: false);
     final moviesProvider = Provider.of<MoviesProvider>(context);
 
-    print(moviesProvider.onDisplayMovies);
-
     return Scaffold(
         appBar: AppBar(
           title: const Text('Películas en cine'),
@@ -24,7 +22,7 @@ class HomeScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              CardSwiper(),
+              CardSwiper(movies: moviesProvider.onDisplayMovies),
               MovieSlider(),
               // MovieSlider(),
               // MovieSlider(),
