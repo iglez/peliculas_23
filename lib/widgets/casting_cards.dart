@@ -29,6 +29,19 @@ class _CastCard extends StatelessWidget {
       width: 110,
       height: 100,
       color: Colors.green,
+      child: Column(
+        children: [
+
+          FadeInImage(
+            placeholder: AssetImage('assets/no-image.jpg'), 
+            image: NetworkImage('https://via.placeholder.com/150x300'),
+            height: 140,
+            width: 100,
+            fit: BoxFit.cover,
+          )
+
+        ],
+      ),
     );
   }
 }
