@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:peliculas_23/models/movie.dart';
 
-class MovieSlider extends StatelessWidget {
+class MovieSlider extends StatefulWidget {
   const MovieSlider({super.key, required this.movies, this.title});
 
   final List<Movie> movies;
   final String? title;
 
+  @override
+  State<MovieSlider> createState() => _MovieSliderState();
+}
+
+class _MovieSliderState extends State<MovieSlider> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,18 +20,18 @@ class MovieSlider extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if(title != null)
+          if(widget.title != null)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(title!,
+              child: Text(widget.title!,
                   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             ),
           const SizedBox(height: 5),
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: movies.length,
-              itemBuilder: (context, index) => _MoviePoster(movie: movies[index],),
+              itemCount: widget.movies.length,
+              itemBuilder: (context, index) => _MoviePoster(movie: widget.movies[index],),
             ),
           )
         ],
