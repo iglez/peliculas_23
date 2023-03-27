@@ -34,37 +34,19 @@ class MoviesProvider extends ChangeNotifier {
   }
 
   getOnDisplayMovies() async {
-    // var url = Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'});
-    var url = Uri.https(_baseUrl, '3/movie/now_playing', {
-      'api_key': _apiKey,
-      'language': _language,
-      'page': '1',
-    });
+    final jsonData = await _getJsonData('3/movie/now_playing');
+    final nowPlayingResponse = NowPlayingResponse.fromJson(jsonData);
 
-    // Await the http get response, then decode the json-formatted response.
-    final response = await http.get(url);
-
-    // print(response.statusCode);
-
-    final nowPlayingResponse = NowPlayingResponse.fromJson(response.body);
     onDisplayMovies = nowPlayingResponse.results;
 
     notifyListeners();
   }
 
   getPopularMovies() async {
-    var url = Uri.https(_baseUrl, '3/movie/popular', {
-      'api_key': _apiKey,
-      'language': _language,
-      'page': '1',
-    });
 
-    // Await the http get response, then decode the json-formatted response.
-    final response = await http.get(url);
+    final jsonData = await _getJsonData('3/movie/popular');
+    final popularResponse = PopularResponse.fromJson(jsonData);
 
-    // print(response.statusCode);
-
-    final popularResponse = PopularResponse.fromJson(response.body);
     popularMovies = [...popularMovies, ...popularResponse.results];
 
     print(popularMovies[0].title);
