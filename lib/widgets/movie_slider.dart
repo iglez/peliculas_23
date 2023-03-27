@@ -12,6 +12,24 @@ class MovieSlider extends StatefulWidget {
 }
 
 class _MovieSliderState extends State<MovieSlider> {
+  final ScrollController _scrollController = ScrollController();
+
+  //initS
+  @override
+  void initState() {
+    super.initState();
+
+    _scrollController.addListener(() {
+      print(_scrollController.position.pixels);
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,18 +38,22 @@ class _MovieSliderState extends State<MovieSlider> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if(widget.title != null)
+          if (widget.title != null)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(widget.title!,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold)),
             ),
           const SizedBox(height: 5),
           Expanded(
             child: ListView.builder(
+              controller: _scrollController,
               scrollDirection: Axis.horizontal,
               itemCount: widget.movies.length,
-              itemBuilder: (context, index) => _MoviePoster(movie: widget.movies[index],),
+              itemBuilder: (context, index) => _MoviePoster(
+                movie: widget.movies[index],
+              ),
             ),
           )
         ],
@@ -42,7 +64,8 @@ class _MovieSliderState extends State<MovieSlider> {
 
 class _MoviePoster extends StatelessWidget {
   const _MoviePoster({
-    super.key, required this.movie,
+    super.key,
+    required this.movie,
   });
 
   final Movie movie;
