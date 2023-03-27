@@ -21,7 +21,7 @@ class MoviesProvider extends ChangeNotifier {
     getPopularMovies();
   }
 
-  Future<String> _getJsonData(String endpoint, int page) async {
+  Future<String> _getJsonData(String endpoint, [int page = 1]) async {
     var url = Uri.https(_baseUrl, endpoint, {
       'api_key': _apiKey,
       'language': _language,
