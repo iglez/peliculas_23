@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:peliculas_23/models/movie.dart';
 
 class MovieSlider extends StatefulWidget {
-  const MovieSlider({super.key, required this.movies, this.title});
+  const MovieSlider(
+      {super.key, required this.movies, this.title, required this.onNextPage});
 
   final List<Movie> movies;
   final String? title;
+  final Function onNextPage;
 
   @override
   State<MovieSlider> createState() => _MovieSliderState();
@@ -22,9 +24,8 @@ class _MovieSliderState extends State<MovieSlider> {
     _scrollController.addListener(() {
       if (_scrollController.position.pixels >=
           _scrollController.position.maxScrollExtent - 500) {
-        print('Obtener siguiente pagina');
+        widget.onNextPage();
       }
-
     });
   }
 
