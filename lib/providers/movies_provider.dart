@@ -21,6 +21,18 @@ class MoviesProvider extends ChangeNotifier {
     getPopularMovies();
   }
 
+  Future<String> _getJsonData(String endpoint, int page) async {
+    var url = Uri.https(_baseUrl, endpoint, {
+      'api_key': _apiKey,
+      'language': _language,
+      'page': '$page',
+    });
+
+    // Await the http get response, then decode the json-formatted response.
+    final response = await http.get(url);
+    return response.body;
+  }
+
   getOnDisplayMovies() async {
     // var url = Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'});
     var url = Uri.https(_baseUrl, '3/movie/now_playing', {
