@@ -18,7 +18,9 @@ class DetailsScreen extends StatelessWidget {
         ),
         SliverList(
             delegate: SliverChildListDelegate([
-          _PosterAndTitle(),
+          _PosterAndTitle(
+            movie: movie,
+          ),
           _Overview(),
           CastingCards(),
         ]))
@@ -28,8 +30,10 @@ class DetailsScreen extends StatelessWidget {
 }
 
 class _PosterAndTitle extends StatelessWidget {
+  final Movie movie;
+
   const _PosterAndTitle({
-    super.key,
+    super.key, required this.movie,
   });
 
   @override
@@ -41,9 +45,9 @@ class _PosterAndTitle extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: const FadeInImage(
-              placeholder: AssetImage('assets/no-image.jpg'),
-              image: NetworkImage('https://via.placeholder.com/200x300'),
+            child: FadeInImage(
+              placeholder: const AssetImage('assets/no-image.jpg'),
+              image: NetworkImage(movie.fullPosterImg),
               height: 150,
             ),
           ),
@@ -51,11 +55,11 @@ class _PosterAndTitle extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('movie-title',
+              Text(movie.title,
                   style: Theme.of(context).textTheme.headlineSmall,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2),
-              Text('original-title',
+              Text(movie.originalTitle,
                   style: Theme.of(context).textTheme.titleMedium,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2),
@@ -65,7 +69,7 @@ class _PosterAndTitle extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  Text('movie-voteAverage',
+                  Text(movie.voteAverage.toString(),
                       style: Theme.of(context).textTheme.bodySmall)
                 ],
               )
@@ -81,7 +85,8 @@ class _CustomAppBar extends StatelessWidget {
   final Movie movie;
 
   const _CustomAppBar({
-    super.key, required this.movie,
+    super.key,
+    required this.movie,
   });
 
   @override
