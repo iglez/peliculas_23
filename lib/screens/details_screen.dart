@@ -13,7 +13,9 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
         body: CustomScrollView(
       slivers: [
-        _CustomAppBar(),
+        _CustomAppBar(
+          movie: movie,
+        ),
         SliverList(
             delegate: SliverChildListDelegate([
           _PosterAndTitle(),
@@ -76,8 +78,10 @@ class _PosterAndTitle extends StatelessWidget {
 }
 
 class _CustomAppBar extends StatelessWidget {
+  final Movie movie;
+
   const _CustomAppBar({
-    super.key,
+    super.key, required this.movie,
   });
 
   @override
@@ -95,10 +99,10 @@ class _CustomAppBar extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             color: Colors.black12,
             width: double.infinity,
-            child: const Text('movie-title')),
-        background: const FadeInImage(
+            child: Text(movie.title)),
+        background: FadeInImage(
           placeholder: AssetImage('assets/loading.gif'),
-          image: NetworkImage('https://via.placeholder.com/500x300'),
+          image: NetworkImage(movie.fullBackdropPath),
           fit: BoxFit.cover,
         ),
       ),
