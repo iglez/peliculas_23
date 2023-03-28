@@ -8,7 +8,6 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Movie movie = ModalRoute.of(context)!.settings.arguments as Movie;
-    print(movie.title);
 
     return Scaffold(
         body: CustomScrollView(
@@ -117,7 +116,7 @@ class _CustomAppBar extends StatelessWidget {
               textAlign: TextAlign.center,
             )),
         background: FadeInImage(
-          placeholder: AssetImage('assets/loading.gif'),
+          placeholder: const AssetImage('assets/loading.gif'),
           image: NetworkImage(movie.fullBackdropPath),
           fit: BoxFit.cover,
         ),
