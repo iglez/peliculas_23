@@ -21,7 +21,7 @@ class DetailsScreen extends StatelessWidget {
           _PosterAndTitle(
             movie: movie,
           ),
-          _Overview(),
+          _Overview(movie: movie,),
           CastingCards(),
         ]))
       ],
@@ -33,7 +33,8 @@ class _PosterAndTitle extends StatelessWidget {
   final Movie movie;
 
   const _PosterAndTitle({
-    super.key, required this.movie,
+    super.key,
+    required this.movie,
   });
 
   @override
@@ -116,7 +117,9 @@ class _CustomAppBar extends StatelessWidget {
 }
 
 class _Overview extends StatelessWidget {
-  const _Overview({super.key});
+  final Movie movie;
+
+  const _Overview({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +129,7 @@ class _Overview extends StatelessWidget {
           vertical: 10,
         ),
         child: Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          movie.overview,
           textAlign: TextAlign.justify,
           style: Theme.of(context).textTheme.titleMedium,
         ));
