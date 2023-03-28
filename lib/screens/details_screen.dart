@@ -21,7 +21,9 @@ class DetailsScreen extends StatelessWidget {
           _PosterAndTitle(
             movie: movie,
           ),
-          _Overview(movie: movie,),
+          _Overview(
+            movie: movie,
+          ),
           CastingCards(),
         ]))
       ],
@@ -39,6 +41,8 @@ class _PosterAndTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Container(
       margin: const EdgeInsets.only(top: 20),
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -53,28 +57,31 @@ class _PosterAndTitle extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 20),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(movie.title,
-                  style: Theme.of(context).textTheme.headlineSmall,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2),
-              Text(movie.originalTitle,
-                  style: Theme.of(context).textTheme.titleMedium,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2),
-              Row(
-                children: [
-                  const Icon(Icons.star_outline, size: 15, color: Colors.grey),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(movie.voteAverage.toString(),
-                      style: Theme.of(context).textTheme.bodySmall)
-                ],
-              )
-            ],
+          ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: size.width - 200),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(movie.title,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2),
+                Text(movie.originalTitle,
+                    style: Theme.of(context).textTheme.titleMedium,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2),
+                Row(
+                  children: [
+                    const Icon(Icons.star_outline, size: 15, color: Colors.grey),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(movie.voteAverage.toString(),
+                        style: Theme.of(context).textTheme.bodySmall)
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),
@@ -101,11 +108,14 @@ class _CustomAppBar extends StatelessWidget {
         centerTitle: true,
         titlePadding: const EdgeInsets.all(0),
         title: Container(
-            padding: const EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(bottom: 10, left: 10),
             alignment: Alignment.bottomCenter,
             color: Colors.black12,
             width: double.infinity,
-            child: Text(movie.title)),
+            child: Text(
+              movie.title,
+              textAlign: TextAlign.center,
+            )),
         background: FadeInImage(
           placeholder: AssetImage('assets/loading.gif'),
           image: NetworkImage(movie.fullBackdropPath),
