@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:peliculas_23/models/cast.dart';
 import 'package:peliculas_23/models/movie.dart';
 import 'package:peliculas_23/models/now_playing_response.dart';
 import 'package:peliculas_23/models/popular_response.dart';
@@ -13,6 +14,8 @@ class MoviesProvider extends ChangeNotifier {
 
   List<Movie> onDisplayMovies = [];
   List<Movie> popularMovies = [];
+
+  Map<int, List<Cast>> movieCast = {};
 
   int _popularPage = 0;
 
