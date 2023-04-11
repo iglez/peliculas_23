@@ -62,7 +62,8 @@ class MoviesProvider extends ChangeNotifier {
   }
 
   Future<List<Cast>> getMovieCast(int movieId) async {
-    // TODO: Revisar el mapa
+    // Revisar el mapa
+    if (movieCast.containsKey(movieId)) return movieCast[movieId]!;
 
     // obteniendo info del servidor
     print('Obteniendo info del servidor...');

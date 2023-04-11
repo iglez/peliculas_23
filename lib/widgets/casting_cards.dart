@@ -28,7 +28,7 @@ class CastingCards extends StatelessWidget {
         }
 
         final cast = snapshot.data;
-        print(cast);
+        // print(cast);
 
         return Container(
           margin: EdgeInsets.only(bottom: 30),
