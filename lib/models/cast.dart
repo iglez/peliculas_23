@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Cast {
     Cast({
         required this.adult,

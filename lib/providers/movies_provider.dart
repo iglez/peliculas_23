@@ -59,4 +59,12 @@ class MoviesProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  getMovieCast(int movieId) async {
+
+    // TODO: Revisar el mapa
+
+    // obteniendo info del servidor
+
+  }
 }
