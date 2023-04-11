@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:peliculas_23/models/cast.dart';
 import 'package:peliculas_23/providers/movies_provider.dart';
@@ -18,7 +19,17 @@ class CastingCards extends StatelessWidget {
       // initialData: InitialData,
       // builder: ( _, AsyncSnapshot snapshot) {
       builder: (_, AsyncSnapshot<List<Cast>> snapshot) {
-        
+        // if (true) {
+        if (!snapshot.hasData) {
+          return const SizedBox(
+            height: 180,
+            child: CupertinoActivityIndicator(),
+          );
+        }
+
+        final cast = snapshot.data;
+        print(cast);
+
         return Container(
           margin: EdgeInsets.only(bottom: 30),
           width: double.infinity,
