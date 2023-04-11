@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MovieSearchDelegate extends SearchDelegate {
+
+  @override
+  // implement searchFieldLabel
+  String? get searchFieldLabel => 'Buscar películas';
+
   @override
   List<Widget>? buildActions(BuildContext context) {
     // TODO: implement buildActions
