@@ -60,8 +60,33 @@ class MovieSearchDelegate extends SearchDelegate {
           return _emptyContainer();
         }
 
-        return Container();
+        final movies = snapshot.data!;
+
+        return ListView.builder(
+          itemCount: movies.length,
+          itemBuilder: (_, index) => _MovieItem(
+            movie: movies[index],
+          ),
+        );
       },
+    );
+  }
+}
+
+class _MovieItem extends StatelessWidget {
+  const _MovieItem({super.key, required this.movie});
+
+  final Movie movie;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: FadeInImage(
+        placeholder: AssetImage('assets/no-image.jpg'),
+        image: NetworkImage(movie.fullPosterImg),
+        width: 50,
+        fit: BoxFit.fill,
+      ),
     );
   }
 }
