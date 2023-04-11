@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MovieSearchDelegate extends SearchDelegate {
-
   @override
   // implement searchFieldLabel
   String? get searchFieldLabel => 'Buscar películas';
@@ -9,7 +8,13 @@ class MovieSearchDelegate extends SearchDelegate {
   @override
   List<Widget>? buildActions(BuildContext context) {
     // TODO: implement buildActions
-    return [Text('buildActions')];
+    return [
+      IconButton(
+          onPressed: () {
+            query = '';
+          },
+          icon: Icon(Icons.clear))
+    ];
   }
 
   @override
