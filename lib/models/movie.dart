@@ -33,6 +33,8 @@ class Movie {
   double voteAverage;
   int voteCount;
 
+  String? heroId;
+
   get fullPosterImg {
     // https://developers.themoviedb.org/3/getting-started/images
     if (posterPath != null) {
