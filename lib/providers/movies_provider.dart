@@ -65,6 +65,7 @@ class MoviesProvider extends ChangeNotifier {
     // TODO: Revisar el mapa
 
     // obteniendo info del servidor
+    print('Obteniendo info del servidor...');
     final jsonData = await _getJsonData('3/movie/$movieId/credits');
     final creditsResponse = CreditsResponse.fromJson(jsonData);
 
