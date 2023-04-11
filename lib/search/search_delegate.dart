@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas_23/models/movie.dart';
+import 'package:peliculas_23/providers/movies_provider.dart';
+import 'package:provider/provider.dart';
 
 class MovieSearchDelegate extends SearchDelegate {
   @override
@@ -33,19 +36,32 @@ class MovieSearchDelegate extends SearchDelegate {
     return Text('buildResults');
   }
 
+  Widget _emptyContainer() {
+    return const Center(
+      child:
+          Icon(Icons.movie_creation_outlined, color: Colors.black38, size: 130),
+    );
+  }
+
   @override
   Widget buildSuggestions(BuildContext context) {
     // implement buildSuggestions
 
     if (query.isEmpty) {
-      return const Center(
-        child: Icon(
-          Icons.movie_creation_outlined, 
-          color: Colors.black38,
-          size: 130),
-      );
+      return _emptyContainer();
     }
 
-    return Container();
+    final movieProvider = Provider.of<MoviesProvider>(context, listen: false);
+
+    return FutureBuilder(
+      future: movieProvider.searchMovie(query),
+      builder: (_, AsyncSnapshot<List<Movie>> snapshot) {
+        if (!snapshot.hasData) {
+          return _emptyContainer();
+        }
+
+        return Container();
+      },
+    );
   }
 }
