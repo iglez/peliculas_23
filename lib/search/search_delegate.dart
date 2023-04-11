@@ -87,6 +87,11 @@ class _MovieItem extends StatelessWidget {
         width: 50,
         fit: BoxFit.fill,
       ),
+      title: Text(movie.title),
+      subtitle: Text(movie.originalTitle),
+      onTap: () {
+        print(movie.title);
+      },
     );
   }
 }
