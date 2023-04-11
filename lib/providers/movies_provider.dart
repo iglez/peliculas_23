@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:peliculas_23/models/cast.dart';
+import 'package:peliculas_23/models/credits_response.dart';
 import 'package:peliculas_23/models/movie.dart';
 import 'package:peliculas_23/models/now_playing_response.dart';
 import 'package:peliculas_23/models/popular_response.dart';
@@ -60,11 +61,15 @@ class MoviesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  getMovieCast(int movieId) async {
-
+  Future<List<Cast>> getMovieCast(int movieId) async {
     // TODO: Revisar el mapa
 
     // obteniendo info del servidor
+    final jsonData = await _getJsonData('3/movie/$movieId/credits');
+    final creditsResponse = CreditsResponse.fromJson(jsonData);
 
+    movieCast[movieId] = creditsResponse.cast;
+
+    return creditsResponse.cast;
   }
 }
