@@ -27,6 +27,6 @@ class MovieSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     // TODO: implement buildSuggestions
-    return Text('buildSuggestions');
+    return Text('buildSuggestions $query');
   }
 }
